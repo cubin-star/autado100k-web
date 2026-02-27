@@ -106,14 +106,15 @@ body {
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid var(--card-border);
+    max-height: 340px;
 }
 
 .hero-bg-image {
     width: 100%;
-    height: auto;
     display: block;
-    min-height: 200px;
     object-fit: cover;
+    object-position: center 70%;
+    height: 340px;
 }
 
 .hero-overlay {
@@ -740,10 +741,13 @@ body {
         text-align: center;
     }
 
+    .hero {
+        max-height: 220px;
+    }
+
     .hero-bg-image {
-        min-height: 180px;
-        object-fit: cover;
-        object-position: center;
+        height: 220px;
+        object-position: center 65%;
     }
 
     .hero-buttons {
