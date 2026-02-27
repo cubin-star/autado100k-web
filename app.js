@@ -20,7 +20,7 @@ const firebaseConfig = {
     projectId: "autodo100k",
     storageBucket: "autodo100k.firebasestorage.app",
     messagingSenderId: "727572875175",
-    appId: "1:727572875175:web:3443cb24dfd99829a91882"
+    appId: "1:727572875175:web:3443cb24dfd99829a91882 "
 };
 
 const app = initializeApp(firebaseConfig);
