@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 AutaDo100k – Auta do 100 000 Kč přímo od majitelů</title>
+    <meta name="description" content="Inzeráty aut do 100 000 Kč přímo od majitelů. Bez autobazarů, bez přirážek.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <div>
+                    <h1>AutaDo100k</h1>
+                    <p class="tagline">Přímo od majitelů • Bez autobazarů</p>
+                </div>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=cz.autado100k.app" target="_blank" class="download-btn">
+                📱 Stáhnout aplikaci
+            </a>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="filters-inner">
+            <button class="filter-toggle" id="filterToggle">🔍 Filtry ▼</button>
+
+            <div class="filter-panel" id="filterPanel">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>🚗 Značka</label>
+                        <select id="filterBrand">
+                            <option value="">Všechny značky</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>⛽ Palivo</label>
+                        <select id="filterFuel">
+                            <option value="">Vše</option>
+                            <option value="Benzín">Benzín</option>
+                            <option value="Nafta">Nafta</option>
+                            <option value="LPG">LPG</option>
+                            <option value="CNG">CNG</option>
+                            <option value="Elektro">Elektro</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>⚙️ Převodovka</label>
+                        <select id="filterTransmission">
+                            <option value="">Vše</option>
+                            <option value="Manuální">Manuální</option>
+                            <option value="Automatická">Automatická</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>💰 Cena od</label>
+                        <input type="number" id="filterPriceFrom" placeholder="0 Kč" min="0" step="5000">
+                    </div>
+                    <div class="filter-group">
+                        <label>💰 Cena do</label>
+                        <input type="number" id="filterPriceTo" placeholder="100 000 Kč" min="0" step="5000">
+                    </div>
+                    <div class="filter-group">
+                        <label>📅 Rok od</label>
+                        <input type="number" id="filterYearFrom" placeholder="2000" min="1960" max="2026">
+                    </div>
+                    <div class="filter-group">
+                        <label>🛣️ Km do</label>
+                        <input type="number" id="filterMileageTo" placeholder="200 000" min="0" step="10000">
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>📍 Kraj</label>
+                        <select id="filterRegion">
+                            <option value="">Celá ČR</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-actions">
+                        <button class="btn-filter" onclick="applyFilters()">🔍 Filtrovat</button>
+                        <button class="btn-reset" onclick="resetFilters()">✖ Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <span id="carCount">Načítám inzeráty...</span>
+            <span class="sort-label">
+                Řadit:
+                <select id="sortSelect" onchange="applyFilters()">
+                    <option value="newest">Nejnovější</option>
+                    <option value="cheapest">Nejlevnější</option>
+                    <option value="expensive">Nejdražší</option>
+                    <option value="mileage">Nejméně km</option>
+                    <option value="year">Nejnovější rok</option>
+                </select>
+            </span>
+        </div>
+    </section>
+
+    <!-- Car Listings -->
+    <main class="listings" id="listings">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Načítám inzeráty z databáze...</p>
+        </div>
+    </main>
+
+    <!-- Car Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>🚗 AutaDo100k © 2025–2026 | Přímo od majitelů</p>
+            <p class="footer-links">
+                <a href="https://cubin-star.github.io/web/GDPR.html" target="_blank">Zásady ochrany osobních údajů</a>
+                •
+                <a href="https://play.google.com/store/apps/details?id=cz.autado100k.app" target="_blank">Google Play</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
