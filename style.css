@@ -83,22 +83,91 @@ body {
     color: var(--text-secondary);
 }
 
-.download-btn {
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.2s;
-    box-shadow: 0 2px 12px rgba(76, 175, 80, 0.25);
+/* ── Auth Area ── */
+.auth-area {
+    display: flex;
+    align-items: center;
 }
 
-.download-btn:hover {
+.auth-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.auth-input {
+    background: var(--navy);
+    border: 1px solid var(--navy-light);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    width: 160px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.auth-input::placeholder {
+    color: var(--text-muted);
+}
+
+.auth-input:focus {
+    border-color: var(--accent);
+}
+
+.auth-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.auth-btn-login {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.25);
+}
+
+.auth-btn-login:hover {
     background: #66BB6A;
-    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
-    transform: translateY(-1px);
+}
+
+.auth-btn-register {
+    background: var(--navy-light);
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+}
+
+.auth-btn-register:hover {
+    background: var(--navy);
+    color: white;
+}
+
+.auth-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-email-display {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.auth-btn-logout {
+    background: rgba(255, 87, 34, 0.15);
+    color: var(--red);
+    border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
+.auth-btn-logout:hover {
+    background: rgba(255, 87, 34, 0.3);
 }
 
 /* ── Hero Banner ── */
@@ -122,54 +191,6 @@ body {
     height: 100%;
     object-fit: contain;
     object-position: center center;
-}
-
-.hero-inner {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 20px 24px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.btn-hero-primary {
-    background: var(--accent);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
-}
-
-.btn-hero-primary:hover {
-    background: #66BB6A;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(76, 175, 80, 0.45);
-}
-
-.btn-hero-secondary {
-    background: rgba(26, 39, 68, 0.85);
-    color: var(--text-secondary);
-    padding: 14px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(8px);
-    transition: all 0.2s;
-}
-
-.btn-hero-secondary:hover {
-    background: rgba(42, 64, 96, 0.9);
-    color: white;
 }
 
 /* ── Filters ── */
@@ -721,42 +742,27 @@ body {
         justify-content: center;
     }
 
-    .download-btn {
+    .auth-form {
+        justify-content: center;
         width: 100%;
-        text-align: center;
+    }
+
+    .auth-input {
+        width: 100%;
+    }
+
+    .auth-btn {
+        flex: 1;
+    }
+
+    .auth-user {
+        justify-content: center;
+        width: 100%;
     }
 
     .hero {
         height: 50vh;
         max-height: 320px;
-    }
-
-    .hero-inner {
-        padding: 12px 16px;
-    }
-
-    .btn-hero-primary,
-    .btn-hero-secondary {
-        padding: 10px 16px;
-        font-size: 13px;
-        flex: 1;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-inner {
-        padding: 0 12px 16px;
-    }
-
-    .btn-hero-primary,
-    .btn-hero-secondary {
-        padding: 12px 20px;
-        font-size: 14px;
-        flex: 1;
-        text-align: center;
     }
 
     .filter-row {

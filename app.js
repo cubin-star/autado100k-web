@@ -12,6 +12,13 @@ import {
     query,
     orderBy
 } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
 // ── Firebase config (same project as mobile app) ──
 const firebaseConfig = {
@@ -25,6 +32,56 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+// ── Auth UI ──
+onAuthStateChanged(auth, (user) => {
+    const authForm = document.getElementById("authForm");
+    const authUser = document.getElementById("authUser");
+    const authEmailDisplay = document.getElementById("authEmailDisplay");
+    if (!authForm || !authUser) return;
+
+    if (user) {
+        authForm.style.display = "none";
+        authUser.style.display = "flex";
+        authEmailDisplay.textContent = user.email;
+    } else {
+        authForm.style.display = "flex";
+        authUser.style.display = "none";
+        authEmailDisplay.textContent = "";
+    }
+});
+
+window.loginUser = async function () {
+    const email = document.getElementById("authEmail").value.trim();
+    const password = document.getElementById("authPassword").value;
+    if (!email || !password) { alert("Vyplňte e-mail a heslo."); return; }
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+    } catch (e) {
+        alert("Přihlášení se nezdařilo: " + e.message);
+    }
+};
+
+window.registerUser = async function () {
+    const email = document.getElementById("authEmail").value.trim();
+    const password = document.getElementById("authPassword").value;
+    if (!email || !password) { alert("Vyplňte e-mail a heslo."); return; }
+    if (password.length < 6) { alert("Heslo musí mít alespoň 6 znaků."); return; }
+    try {
+        await createUserWithEmailAndPassword(auth, email, password);
+    } catch (e) {
+        alert("Registrace se nezdařila: " + e.message);
+    }
+};
+
+window.logoutUser = async function () {
+    try {
+        await signOut(auth);
+    } catch (e) {
+        alert("Odhlášení se nezdařilo: " + e.message);
+    }
+};
 
 // ── State ──
 let allCars = [];

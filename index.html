@@ -29,19 +29,24 @@
                     <p class="tagline">Přímo od majitelů • Bez autobazarů</p>
                 </div>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=cz.autado100k.app" target="_blank" class="download-btn">
-                📱 Stáhnout aplikaci
-            </a>
+            <div class="auth-area" id="authArea">
+                <div class="auth-form" id="authForm">
+                    <input type="email" id="authEmail" placeholder="E-mail" class="auth-input">
+                    <input type="password" id="authPassword" placeholder="Heslo" class="auth-input">
+                    <button class="auth-btn auth-btn-login" id="btnLogin" onclick="loginUser()">Přihlásit</button>
+                    <button class="auth-btn auth-btn-register" id="btnRegister" onclick="registerUser()">Registrovat</button>
+                </div>
+                <div class="auth-user" id="authUser" style="display:none;">
+                    <span class="auth-email-display" id="authEmailDisplay"></span>
+                    <button class="auth-btn auth-btn-logout" onclick="logoutUser()">Odhlásit</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Banner -->
     <section class="hero">
         <img src="images/grafika.png" alt="AutaDo100k – Auta do 100 000 Kč" class="hero-image">
-        <div class="hero-inner">
-            <a href="#listings" class="btn-hero-primary">🔍 Prohlédnout inzeráty</a>
-            <a href="https://play.google.com/store/apps/details?id=cz.autado100k.app" target="_blank" class="btn-hero-secondary">📱 Stáhnout aplikaci</a>
-        </div>
     </section>
 
     <!-- Filters -->
