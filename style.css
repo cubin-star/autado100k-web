@@ -1,21 +1,25 @@
 /* ═══════════════════════════════════════════
    AutaDo100k – Web Style
-   Dark theme matching the mobile app
+   Dark navy automotive theme
    ═══════════════════════════════════════════ */
 
 :root {
-    --bg: #121212;
-    --card-bg: #1E1E1E;
-    --card-border: #333333;
+    --bg: #080e1a;
+    --bg-lighter: #0c1526;
+    --card-bg: #111d33;
+    --card-border: #1e3050;
     --accent: #4CAF50;
     --accent-dark: #1B5E20;
+    --accent-glow: rgba(76, 175, 80, 0.15);
     --text: #FFFFFF;
-    --text-secondary: #AAAAAA;
-    --text-muted: #666666;
+    --text-secondary: #8899b0;
+    --text-muted: #4a5c75;
     --gold: #FFD700;
     --orange: #FF9800;
     --red: #FF5722;
     --blue: #1E88E5;
+    --navy: #1a2744;
+    --navy-light: #243556;
     --max-width: 1200px;
 }
 
@@ -33,19 +37,22 @@ body {
     min-height: 100vh;
 }
 
+.text-green { color: var(--accent); }
+
 /* ── Header ── */
 .header {
-    background-color: var(--card-bg);
+    background: linear-gradient(180deg, #0f1b30, #0c1526);
     border-bottom: 1px solid var(--card-border);
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
 .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 12px 16px;
+    padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,14 +64,18 @@ body {
     gap: 12px;
 }
 
-.logo-icon {
-    font-size: 36px;
+.logo-badge {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2px;
+    border: 1px solid var(--navy-light);
 }
 
 .logo h1 {
     font-size: 22px;
-    color: var(--accent);
+    color: var(--text);
     line-height: 1.2;
+    font-weight: 800;
 }
 
 .tagline {
@@ -80,16 +91,144 @@ body {
     border-radius: 10px;
     font-weight: bold;
     font-size: 14px;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(76, 175, 80, 0.25);
 }
 
 .download-btn:hover {
     background: #66BB6A;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ── Hero Banner ── */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #060d1a 0%, #0f1f38 40%, #0a1628 100%);
+    overflow: hidden;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(200, 220, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 50px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h2 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-features {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.hero-features li {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #d0d8e8;
+}
+
+.hero-features .check {
+    color: var(--accent);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.hero-sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background: var(--accent);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+}
+
+.btn-hero-primary:hover {
+    background: #66BB6A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(76, 175, 80, 0.45);
+}
+
+.btn-hero-secondary {
+    background: var(--navy-light);
+    color: var(--text-secondary);
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid var(--card-border);
+    transition: all 0.2s;
+}
+
+.btn-hero-secondary:hover {
+    background: #2a4060;
+    color: white;
+}
+
+.hero-badge-wrap {
+    flex-shrink: 0;
+}
+
+.hero-app-badge {
+    background: linear-gradient(145deg, #1a2744, #0f1b30);
+    border: 2px solid var(--navy-light);
+    border-radius: 28px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(100, 140, 200, 0.05);
+}
+
+.hero-badge-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
 }
 
 /* ── Filters ── */
 .filters {
-    background-color: var(--card-bg);
+    background: var(--bg-lighter);
     border-bottom: 1px solid var(--card-border);
 }
 
@@ -102,14 +241,15 @@ body {
 .filter-toggle {
     width: 100%;
     padding: 12px;
-    background: var(--accent-dark);
-    color: #81C784;
-    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, var(--accent-dark), #2E7D32);
+    color: #a5d6a7;
+    border: 1px solid var(--accent);
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(76, 175, 80, 0.15);
 }
 
 .filter-toggle:hover {
@@ -148,7 +288,7 @@ body {
 .filter-group input {
     width: 100%;
     padding: 10px;
-    background: #2A2A2A;
+    background: #0c1526;
     color: var(--text);
     border: 1px solid var(--card-border);
     border-radius: 8px;
@@ -159,6 +299,7 @@ body {
 .filter-group input:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .filter-actions {
@@ -177,6 +318,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
 }
 
 .btn-filter:hover {
@@ -185,7 +327,7 @@ body {
 
 .btn-reset {
     padding: 10px 16px;
-    background: #333;
+    background: var(--navy);
     color: var(--text-secondary);
     border: 1px solid var(--card-border);
     border-radius: 8px;
@@ -194,7 +336,8 @@ body {
 }
 
 .btn-reset:hover {
-    background: #444;
+    background: var(--navy-light);
+    color: white;
 }
 
 /* ── Stats Bar ── */
@@ -215,7 +358,7 @@ body {
 }
 
 .sort-label select {
-    background: #2A2A2A;
+    background: #0c1526;
     color: var(--text);
     border: 1px solid var(--card-border);
     border-radius: 6px;
@@ -257,22 +400,23 @@ body {
 
 /* ── Car Card ── */
 .car-card {
-    background: var(--card-bg);
+    background: linear-gradient(160deg, var(--card-bg), #0e1a2e);
     border-radius: 16px;
     border: 1px solid var(--card-border);
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     cursor: pointer;
 }
 
 .car-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(100, 150, 220, 0.05);
+    border-color: #2a4a70;
 }
 
 .car-card.is-top {
     border-color: var(--gold);
-    box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.12);
 }
 
 .car-card.is-sold {
@@ -284,7 +428,7 @@ body {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    background: #0a0a0a;
+    background: #060d1a;
 }
 
 .car-image {
@@ -300,7 +444,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 48px;
-    background: #1a1a1a;
+    background: #0a1424;
 }
 
 .badge-top {
@@ -363,11 +507,12 @@ body {
 }
 
 .spec-tag {
-    background: #2A2A2A;
+    background: #0c1a2e;
     padding: 4px 8px;
     border-radius: 6px;
     font-size: 12px;
     color: var(--text-secondary);
+    border: 1px solid #1a2d4a;
 }
 
 .car-location {
@@ -403,6 +548,7 @@ body {
     margin: 20px auto;
     position: relative;
     border: 1px solid var(--card-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 .modal-close {
@@ -436,14 +582,14 @@ body {
     height: 400px;
     overflow: hidden;
     border-radius: 20px 20px 0 0;
-    background: #0a0a0a;
+    background: #060d1a;
 }
 
 .detail-gallery img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: #0a0a0a;
+    background: #060d1a;
 }
 
 .gallery-nav {
@@ -505,9 +651,10 @@ body {
 }
 
 .detail-spec {
-    background: #2A2A2A;
+    background: #0c1a2e;
     padding: 10px 14px;
     border-radius: 10px;
+    border: 1px solid #1a2d4a;
 }
 
 .detail-spec-label {
@@ -523,11 +670,12 @@ body {
 .detail-description {
     margin-bottom: 20px;
     padding: 16px;
-    background: #2A2A2A;
+    background: #0c1a2e;
     border-radius: 10px;
     white-space: pre-wrap;
     color: var(--text-secondary);
     line-height: 1.6;
+    border: 1px solid #1a2d4a;
 }
 
 .detail-contact {
@@ -576,7 +724,7 @@ body {
 
 /* ── Footer ── */
 .footer {
-    background: var(--card-bg);
+    background: linear-gradient(180deg, var(--bg), #060a14);
     border-top: 1px solid var(--card-border);
     margin-top: 40px;
     padding: 24px 16px;
@@ -630,6 +778,28 @@ body {
     .download-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 16px;
+    }
+
+    .hero-text h2 {
+        font-size: 28px;
+    }
+
+    .hero-features li {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-badge-wrap {
+        display: none;
     }
 
     .filter-row {
