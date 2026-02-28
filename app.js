@@ -16,6 +16,7 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
     signOut,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
@@ -80,6 +81,17 @@ window.logoutUser = async function () {
         await signOut(auth);
     } catch (e) {
         alert("Odhlášení se nezdařilo: " + e.message);
+    }
+};
+
+window.resetPassword = async function () {
+    const email = document.getElementById("authEmail").value.trim();
+    if (!email) { alert("Zadejte e-mail pro obnovu hesla."); return; }
+    try {
+        await sendPasswordResetEmail(auth, email);
+        alert("E-mail pro obnovu hesla byl odeslán na: " + email);
+    } catch (e) {
+        alert("Nepodařilo se odeslat e-mail: " + e.message);
     }
 };
 

@@ -170,14 +170,29 @@ body {
     background: rgba(255, 87, 34, 0.3);
 }
 
+.auth-forgot {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.auth-forgot:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 /* ── Hero Banner ── */
 .hero {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    height: 70vh;
-    max-height: 600px;
+    height: 50vh;
+    max-height: 500px;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -189,7 +204,7 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
 }
 
@@ -761,8 +776,8 @@ body {
     }
 
     .hero {
-        height: 50vh;
-        max-height: 320px;
+        height: 35vh;
+        max-height: 280px;
     }
 
     .filter-row {
